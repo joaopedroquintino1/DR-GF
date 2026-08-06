@@ -32,22 +32,26 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-        <Script
-    src="https://www.googletagmanager.com/gtag/js?id=G-9DK3HJYMQT"
-    strategy="afterInteractive"
-  />
+       {children}
 
-  <Script id="google-tag" strategy="afterInteractive">
-    {`
-      window.dataLayer = window.dataLayer || [];
+<Script
+  src="https://www.googletagmanager.com/gtag/js?id=G-9DK3HJYMQT"
+  strategy="afterInteractive"
+/>
 
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+<Script id="google-tag" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
 
-      gtag('js', new Date());
-      gtag('config', 'G-9DK3HJYMQT');
-    `}
-  </Script>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-9DK3HJYMQT');
+  `}
+</Script>
 </body>
+</html>
+);
+}
