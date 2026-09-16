@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import WhatsAppLink from "./components/WhatsAppLink";
 
-const whatsapp = "https://wa.me/5516997655116?text=Ol%C3%A1%2C%20Dra.%20Gabrielle!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.";
 const maps = "https://www.google.com/maps/@-21.1834223,-47.8062145,3a,75y,207.58h,90t/data=!3m7!1e1!3m5!1sDz-xW6W_l7OEipwp7gkIgA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DDz-xW6W_l7OEipwp7gkIgA%26yaw%3D207.58!7i16384!8i8192?entry=ttu";
 
 const treatments = [
@@ -48,7 +48,7 @@ export default function Home() {
           <h1>Seu sorriso,<br/><em>cuidado com</em><br/>excelência.</h1>
           <p className="lead">Cuidado próximo, planejamento individual e atenção a cada detalhe para transformar sua experiência no consultório.</p>
           <div className="hero-actions">
-            <a className="button primary magnetic" href={whatsapp} target="_blank" rel="noreferrer">◉ Agendar pelo WhatsApp</a>
+            <WhatsAppLink origem="Hero" className="button primary magnetic">◉ Agendar pelo WhatsApp</WhatsAppLink>
             <a className="button secondary" href="#tratamentos">Conhecer tratamentos <span>→</span></a>
           </div>
           <div className="trust-row">
@@ -80,7 +80,7 @@ export default function Home() {
       <section id="tratamentos" className="treatments section-pad">
         <div className="section-heading reveal"><p className="eyebrow">Áreas de atuação</p><h2>Cuidado completo para o seu sorriso.</h2><p>Cada indicação começa por uma avaliação individual. Conheça algumas das possibilidades de cuidado.</p></div>
         <div className="treatment-grid">
-          {treatments.map((item, i) => <article className="treatment-card reveal" key={item.title} style={{transitionDelay:`${i*80}ms`}}><span className="number">0{i+1}</span><b className="treatment-icon">{item.icon}</b><h3>{item.title}</h3><p>{item.text}</p><a href={whatsapp} target="_blank" rel="noreferrer">Quero saber mais →</a></article>)}
+          {treatments.map((item, i) => <article className="treatment-card reveal" key={item.title} style={{transitionDelay:`${i*80}ms`}}><span className="number">0{i+1}</span><b className="treatment-icon">{item.icon}</b><h3>{item.title}</h3><p>{item.text}</p><WhatsAppLink origem={`Tratamento: ${item.title}`}>Quero saber mais →</WhatsAppLink></article>)}
         </div>
         <p className="clinical-note">A indicação de cada tratamento depende de avaliação clínica individual.</p>
       </section>
@@ -94,7 +94,7 @@ export default function Home() {
         <div className="section-heading light reveal"><p className="eyebrow">Resultados reais</p><h2>Detalhes que fazem diferença.</h2><p>Registros clínicos realizados pela Dra. Gabrielle. Cada resultado é individual e depende das condições de cada paciente.</p></div>
         <div className="result-layout reveal">
           <div className="before-after"><figure><img src="/images/limpeza-antes.jpg" alt="Antes da limpeza odontológica"/><figcaption>Antes</figcaption></figure><figure><img src="/images/limpeza-depois.jpg" alt="Depois da limpeza odontológica"/><figcaption>Depois</figcaption></figure></div>
-          <div className="result-copy"><span>Limpeza profissional</span><h3>Saúde que também aparece no sorriso.</h3><p>A limpeza profissional auxilia na remoção de placa e tártaro em regiões que a escovação diária pode não alcançar.</p><a className="button gold" href={whatsapp} target="_blank" rel="noreferrer">Agendar uma avaliação</a></div>
+          <div className="result-copy"><span>Limpeza profissional</span><h3>Saúde que também aparece no sorriso.</h3><p>A limpeza profissional auxilia na remoção de placa e tártaro em regiões que a escovação diária pode não alcançar.</p><WhatsAppLink origem="Resultados" className="button gold">Agendar uma avaliação</WhatsAppLink></div>
         </div>
         <div className="smile-strip reveal"><img src="/images/sorriso-resultado.jpg" alt="Sorriso acompanhado pela Dra. Gabrielle"/><div><span>Cuidado preventivo</span><h3>Um sorriso saudável começa com acompanhamento regular.</h3></div></div>
       </section>
@@ -107,13 +107,13 @@ export default function Home() {
       <section id="contato" className="contact section-pad">
         <div className="contact-card reveal">
           <p className="eyebrow">Vamos cuidar do seu sorriso?</p><h2>Seu atendimento começa com uma conversa.</h2><p>Chame pelo WhatsApp para tirar dúvidas e encontrar o melhor momento para sua avaliação.</p>
-          <a className="button primary" href={whatsapp} target="_blank" rel="noreferrer">◉ Conversar no WhatsApp</a>
+          <WhatsAppLink origem="Contato" className="button primary">◉ Conversar no WhatsApp</WhatsAppLink>
         </div>
         <div className="address-card reveal"><span className="map-pin">⌖</span><p>Atendimento em</p><h3>Rua Prudente de Morais, 1186</h3><p>Ribeirão Preto — SP</p><a href={maps} target="_blank" rel="noreferrer">Ver localização no Google Maps →</a><hr/><p><b>Instagram</b><br/><a href="https://instagram.com/gabrielleferreira.dra" target="_blank" rel="noreferrer">@gabrielleferreira.dra</a></p></div>
       </section>
 
       <footer><div className="brand"><img className="brand-logo" src="/images/logo-gabrielle.png" alt="Logo da Dra. Gabrielle Ferreira"/><span><strong>Dra. Gabrielle Ferreira</strong><small>Cirurgiã-dentista • CRO-SP 179093</small></span></div><p>© 2026 • Ribeirão Preto, SP</p></footer>
-      <a className="floating-whatsapp" href={whatsapp} target="_blank" rel="noreferrer" aria-label="Agendar pelo WhatsApp">◉<span>Agendar</span></a>
+      <WhatsAppLink origem="Botao Flutuante" className="floating-whatsapp" aria-label="Agendar pelo WhatsApp">◉<span>Agendar</span></WhatsAppLink>
     </main>
   );
 }
